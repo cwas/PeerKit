@@ -116,9 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				E89FD6C51A0C3CDC00C2FEF7 /* PeerKit.h */,
-				E89FD6DD1A0C3CF800C2FEF7 /* PeerKit.swift */,
 				E89FD6DF1A0C3D1000C2FEF7 /* Advertiser.swift */,
 				E89FD6E01A0C3D1000C2FEF7 /* Browser.swift */,
+				E89FD6DD1A0C3CF800C2FEF7 /* PeerKit.swift */,
 				E89FD6E11A0C3D1000C2FEF7 /* Session.swift */,
 				E89FD6E21A0C3D1000C2FEF7 /* Transceiver.swift */,
 				E89FD6C31A0C3CDC00C2FEF7 /* Supporting Files */,
