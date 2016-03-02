@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name = 'PeerKit'
-  s.version = '1.1.0'
+  s.version = '2.0.0'
   s.summary = 'Swift framework for building event-driven, zero-config Multipeer Connectivity apps'
-  s.authors = { 'JP Simard' => 'jp@jpsim.com' }
+  s.authors = { 'JP Simard' => 'jp@jpsim.com',
+                'cwas' => 'cwas'}
   s.license = 'MIT'
-  s.homepage = 'https://github.com/jpsim/PeerKit'
-  s.social_media_url = 'https://twitter.com/simjp'
+  s.homepage = 'https://github.com/cwas/PeerKit'
   s.source = {
-    :git => 'https://github.com/jpsim/PeerKit.git',
+    :git => 'https://github.com/cwas/PeerKit.git',
     :tag => s.version
   }
   s.ios.deployment_target = '8.0'
