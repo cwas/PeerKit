@@ -2,6 +2,8 @@
 
 ## An open-source Swift framework for building event-driven, zero-config Multipeer Connectivity apps
 
+This version of peerkit has been refactored for ease of use by divide and conquer and parallel algorithms and applications.
+
 ## Usage
 
 ```swift
