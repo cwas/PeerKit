@@ -24,7 +24,7 @@ public class Session: NSObject, MCSessionDelegate {
     
     var delegate: SessionDelegate?
     var myPeerSessions = [String: MCSession]()
-    let myPeerId = MCPeerID(displayName: myName)
+    public let myPeerId = MCPeerID(displayName: myName)
     
     
     public init(displayName: String, delegate: SessionDelegate? = nil) {

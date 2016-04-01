@@ -33,11 +33,14 @@ public var eventBlocks = [String: ObjectBlock]()
 
 // MARK: PeerKit Globals
 
+public let delimiter: String = "\t"
 
 #if os(iOS)
     import UIKit
-    //Added 😺 and hash() as a unique identifier to allow multiple iPhone simulators to run PeerKit simultaneously
-    public let myName = String(UIDevice.currentDevice().name + "😺" + String(UIDevice.currentDevice().hash))
+    // Use the device name, along with the UUID for the device separated by a tab character
+    let name = UIDevice.currentDevice().name
+    let id = UIDevice.currentDevice().identifierForVendor!.UUIDString
+    public let myName = String(name + delimiter + id)
 #else
     public let myName = NSHost.currentHost().localizedName ?? ""
 #endif
@@ -57,15 +60,15 @@ public func sendEvent(event: String, object: AnyObject? = nil, toPeers peers: [M
     guard let peers = peers where !peers.isEmpty else {
         return
     }
-    
+
     var rootObject: [String: AnyObject] = ["event": event]
-    
+
     if let object: AnyObject = object {
         rootObject["object"] = object
     }
-    
+
     let data = NSKeyedArchiver.archivedDataWithRootObject(rootObject)
-    
+
     masterSession.sendData(data, toPeers: peers, withMode: .Reliable)
 }
 
