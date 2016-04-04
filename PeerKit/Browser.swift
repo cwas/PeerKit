@@ -44,7 +44,7 @@ class Browser: NSObject, MCNearbyServiceBrowserDelegate {
         print("\tBrowser \(browser.myPeerID.displayName) found peerID \(peerID.displayName)")
 
         //Only invite from one side. Example: For devices A and B, only one should invite the other.
-        let hasInvite = (displayName.componentsSeparatedByString(PeerKit.delimiter)[1] > peerID.displayName.componentsSeparatedByString(PeerKit.delimiter)[1])
+        let hasInvite = (displayName.componentsSeparatedByString(PeerKit.ID_DELIMITER)[1] > peerID.displayName.componentsSeparatedByString(PeerKit.ID_DELIMITER)[1])
 
         if (hasInvite) {
             print("\tBrowser sending invitePeer")

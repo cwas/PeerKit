@@ -33,14 +33,14 @@ public var eventBlocks = [String: ObjectBlock]()
 
 // MARK: PeerKit Globals
 
-public let delimiter: String = "\t"
+public let ID_DELIMITER: String = "\t"
 
 #if os(iOS)
     import UIKit
     // Use the device name, along with the UUID for the device separated by a tab character
     let name = UIDevice.currentDevice().name
     let id = UIDevice.currentDevice().identifierForVendor!.UUIDString
-    public let myName = String(name + delimiter + id)
+    public let myName = String(name + ID_DELIMITER + id)
 #else
     public let myName = NSHost.currentHost().localizedName ?? ""
 #endif
