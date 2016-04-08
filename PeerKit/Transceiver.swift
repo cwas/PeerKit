@@ -79,7 +79,7 @@ public class Transceiver: SessionDelegate {
     
     
     public func receivedData(myPeerID: MCPeerID, data: NSData, fromPeer peer: MCPeerID) {
-        print("receivedData from \(peer.displayName) (on \(myPeerID.displayName))")
+        debugPrint("receivedData from \(peer.displayName) (on \(myPeerID.displayName))")
         if let dict = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [String: AnyObject] {
             if let event = dict["event"] as? String {
                 if let object: AnyObject? = dict["object"] {

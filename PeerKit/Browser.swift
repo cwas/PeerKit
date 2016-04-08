@@ -41,18 +41,18 @@ class Browser: NSObject, MCNearbyServiceBrowserDelegate {
             return
         }
 
-        print("\tBrowser \(browser.myPeerID.displayName) found peerID \(peerID.displayName)")
+        debugPrint("\tBrowser \(browser.myPeerID.displayName) found peerID \(peerID.displayName)")
 
         //Only invite from one side. Example: For devices A and B, only one should invite the other.
         let hasInvite = (displayName.componentsSeparatedByString(PeerKit.ID_DELIMITER)[1] > peerID.displayName.componentsSeparatedByString(PeerKit.ID_DELIMITER)[1])
 
         if (hasInvite) {
-            print("\tBrowser sending invitePeer")
+            debugPrint("\tBrowser sending invitePeer")
             let aSession = masterSession.availableSession(displayName, peerName: peerID.displayName)
             browser.invitePeer(peerID, toSession: aSession, withContext: nil, timeout: 30.0)
         }
         else {
-            print("\tBrowser NOT sending invitePeer")
+            debugPrint("\tBrowser NOT sending invitePeer")
 
         }
     }
@@ -63,11 +63,11 @@ class Browser: NSObject, MCNearbyServiceBrowserDelegate {
             return
         }
 
-        print("\tBrowser \(browser.myPeerID.displayName) lost peer \(peerID.displayName)")
+        debugPrint("\tBrowser \(browser.myPeerID.displayName) lost peer \(peerID.displayName)")
     }
 
 
     func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: NSError) {
-        print("\tBrowser didNotStartBrowsingForPeers: \(error.localizedDescription)")
+        debugPrint("\tBrowser didNotStartBrowsingForPeers: \(error.localizedDescription)")
     }
 }

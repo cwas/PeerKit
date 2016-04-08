@@ -76,10 +76,8 @@ public func sendEvent(event: String, object: AnyObject? = nil, toPeers peers: [M
 // MARK: Development
 
 
-public let debug = false
-
-public func print(message: String) {
-    if debug {
-        print(message)
-    }
+func debugPrint(message: String, function: String = #function) {
+    #if DEBUG
+        print("\(function): \(message)")
+    #endif
 }

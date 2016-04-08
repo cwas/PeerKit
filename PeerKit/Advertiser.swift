@@ -46,12 +46,12 @@ class Advertiser: NSObject, MCNearbyServiceAdvertiserDelegate {
         
         advertiser.stopAdvertisingPeer()
         
-        print("Advertiser \(advertiser.myPeerID.displayName) accepting \(peerID.displayName)")
+        debugPrint("Advertiser \(advertiser.myPeerID.displayName) accepting \(peerID.displayName)")
     }
     
     
     func advertiser(advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: NSError) {
-        print("Advertiser didNotStartAdvertisingPeer: \(error.localizedDescription)")
+        debugPrint("Advertiser didNotStartAdvertisingPeer: \(error.localizedDescription)")
     }
     
     

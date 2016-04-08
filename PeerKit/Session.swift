@@ -48,13 +48,13 @@ public class Session: NSObject, MCSessionDelegate {
             myPeerSessions.removeValueForKey(displayName)
         }
         
-        print("\t\tSession disconnect \(displayName)")
+        debugPrint("\t\tSession disconnect \(displayName)")
     }
     
     
     func getSession(displayName: String) -> MCSession? {
         guard myPeerSessions.indexForKey(displayName) != nil else {
-            print("\t\tSession getSession not found for \(displayName)")
+            debugPrint("\t\tSession getSession not found for \(displayName)")
             return nil
         }
         
@@ -63,12 +63,12 @@ public class Session: NSObject, MCSessionDelegate {
     
     
     //    public func getPeerId(displayName: String) -> MCPeerID {
-    //        //print("\t\tSession getPeerId for \(displayName)")
+    //        //debugPrint("\t\tSession getPeerId for \(displayName)")
     //        var peer: MCPeerID = MCPeerID(displayName: displayName)
     //        for (name, session) in myPeerSessions {
     //            if name == displayName {
     //                peer = session.myPeerID
-    //                //print("\t\tSession getPeerId found \(peer.displayName)")
+    //                //debugPrint("\t\tSession getPeerId found \(peer.displayName)")
     //            }
     //        }
     //
@@ -87,10 +87,10 @@ public class Session: NSObject, MCSessionDelegate {
     
     public func allConnectedPeers() -> [MCPeerID] {
         var allPeers: [MCPeerID] = []
-        print("\t\tSession allConnectedPeers \(myPeerSessions.count)")
+        debugPrint("\t\tSession allConnectedPeers \(myPeerSessions.count)")
         for (_, session) in myPeerSessions {
             for peer in session.connectedPeers {
-                print("\t\t\t\tsessions peer: \(peer.displayName)")
+                debugPrint("\t\t\t\tsessions peer: \(peer.displayName)")
                 allPeers.append(peer)
              }
             //allPeers.append(MCPeerID(displayName: name))
@@ -115,7 +115,7 @@ public class Session: NSObject, MCSessionDelegate {
     
     
     func availableSession(displayName: String, peerName: String) -> MCSession {
-        print("\t\tSession checking availableSession for \(displayName)")
+        debugPrint("\t\tSession checking availableSession for \(displayName)")
         var notFound = true
         var availableSession: MCSession? = nil
         
@@ -124,13 +124,13 @@ public class Session: NSObject, MCSessionDelegate {
             if (session.connectedPeers.count < kMCSessionMaximumNumberOfPeers) {
                 notFound = false
                 availableSession = session
-                print("\t\tSession availableSession found session")
+                debugPrint("\t\tSession availableSession found session")
                 break
             }
         }
         
         if notFound {
-            print("\t\tSession availableSession create new session")
+            debugPrint("\t\tSession availableSession create new session")
             availableSession = self.newSession(displayName, peerName: peerName)
         }
         
@@ -171,14 +171,14 @@ public class Session: NSObject, MCSessionDelegate {
         let ids = "from \(session.myPeerID.displayName) to peer \(peerID.displayName)"
         switch state {
         case .Connecting:
-            print("\t\tSession Connecting \(ids)")
+            debugPrint("\t\tSession Connecting \(ids)")
             delegate?.connecting(session.myPeerID, toPeer: peerID)
         case .Connected:
-            print("\t\tSession Connected \(ids)")
+            debugPrint("\t\tSession Connected \(ids)")
             //myPeerSessions[session.myPeerID.displayName] = session
             delegate?.connected(session.myPeerID, toPeer: peerID)
         case .NotConnected:
-            print("\t\tSession NotConnected \(ids)")
+            debugPrint("\t\tSession NotConnected \(ids)")
             //self.disconnect(peerID.displayName)
             delegate?.disconnected(session.myPeerID, fromPeer: peerID)
         }
@@ -203,7 +203,7 @@ public class Session: NSObject, MCSessionDelegate {
     public func session(session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, atURL localURL: NSURL, withError error: NSError?) {
         // unused
         if error != nil {
-            print("Error didFinishReceivingResourceWithName: \(error)")
+            debugPrint("Error didFinishReceivingResourceWithName: \(error)")
         }
         if (error == nil) {
             delegate?.finishReceivingResource(session.myPeerID, resourceName: resourceName, fromPeer: peerID, atURL: localURL)
