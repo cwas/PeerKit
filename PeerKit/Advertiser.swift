@@ -1,6 +1,5 @@
 //
 //  Advertiser.swift
-//  CardsAgainst
 //
 //  Created by JP Simard on 11/3/14.
 //  Copyright (c) 2014 JP Simard. All rights reserved.
@@ -24,7 +23,7 @@ class Advertiser: NSObject, MCNearbyServiceAdvertiserDelegate {
     
     
     func startAdvertising(serviceType serviceType: String, discoveryInfo: [String: String]? = nil) {
-        advertiser = MCNearbyServiceAdvertiser(peer: masterSession.getPeerId(), discoveryInfo: discoveryInfo, serviceType: serviceType)
+        advertiser = MCNearbyServiceAdvertiser(peer: PeerPack.masterSession.getPeerId(), discoveryInfo: discoveryInfo, serviceType: serviceType)
         advertiser?.delegate = self
         advertiser?.startAdvertisingPeer()
     }
@@ -41,7 +40,7 @@ class Advertiser: NSObject, MCNearbyServiceAdvertiserDelegate {
             return
         }
         
-        let aSession = masterSession.availableSession(displayName, peerName: peerID.displayName)
+        let aSession = PeerPack.masterSession.availableSession(displayName, peerName: peerID.displayName)
         invitationHandler(true, aSession)
         
         advertiser.stopAdvertisingPeer()

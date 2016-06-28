@@ -1,6 +1,5 @@
 //
 //  Session.swift
-//  CardsAgainst
 //
 //  Created by JP Simard on 11/3/14.
 //  Copyright (c) 2014 JP Simard. All rights reserved.
@@ -24,7 +23,7 @@ public class Session: NSObject, MCSessionDelegate {
     
     var delegate: SessionDelegate?
     var myPeerSessions = [String: MCSession]()
-    public let myPeerId = MCPeerID(displayName: myName)
+    public let myPeerId = MCPeerID(displayName: PeerPack.myName)
     
     
     public init(displayName: String, delegate: SessionDelegate? = nil) {

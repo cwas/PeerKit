@@ -15,6 +15,6 @@ import PeerKit
 
 class PeerKitTests: XCTestCase {
     func testDeviceName() {
-        XCTAssert(count(myName) > 0, "Device name should be a non-empty string")
+        XCTAssert(PeerPack.myName.characters.count > 0, "Device name should be a non-empty string")
     }
 }

@@ -13,13 +13,13 @@
 		E86EC45E1AB735A1001A7734 /* PeerKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6D21A0C3CDC00C2FEF7 /* PeerKitTests.swift */; };
 		E86EC45F1AB735A2001A7734 /* PeerKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6D21A0C3CDC00C2FEF7 /* PeerKitTests.swift */; };
 		E89FD6C61A0C3CDC00C2FEF7 /* PeerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E89FD6C51A0C3CDC00C2FEF7 /* PeerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E89FD6DE1A0C3CF800C2FEF7 /* PeerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6DD1A0C3CF800C2FEF7 /* PeerKit.swift */; };
+		E89FD6DE1A0C3CF800C2FEF7 /* PeerPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6DD1A0C3CF800C2FEF7 /* PeerPack.swift */; };
 		E89FD6E31A0C3D1000C2FEF7 /* Advertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6DF1A0C3D1000C2FEF7 /* Advertiser.swift */; };
 		E89FD6E41A0C3D1000C2FEF7 /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6E01A0C3D1000C2FEF7 /* Browser.swift */; };
 		E89FD6E51A0C3D1000C2FEF7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6E11A0C3D1000C2FEF7 /* Session.swift */; };
 		E89FD6E61A0C3D1000C2FEF7 /* Transceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6E21A0C3D1000C2FEF7 /* Transceiver.swift */; };
 		E8DC829C1AB730CD000BB585 /* PeerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E89FD6C51A0C3CDC00C2FEF7 /* PeerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E8DC829D1AB730D3000BB585 /* PeerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6DD1A0C3CF800C2FEF7 /* PeerKit.swift */; };
+		E8DC829D1AB730D3000BB585 /* PeerPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6DD1A0C3CF800C2FEF7 /* PeerPack.swift */; };
 		E8DC829E1AB730D3000BB585 /* Advertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6DF1A0C3D1000C2FEF7 /* Advertiser.swift */; };
 		E8DC829F1AB730D3000BB585 /* Browser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6E01A0C3D1000C2FEF7 /* Browser.swift */; };
 		E8DC82A01AB730D3000BB585 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89FD6E11A0C3D1000C2FEF7 /* Session.swift */; };
@@ -52,7 +52,7 @@
 		E89FD6C51A0C3CDC00C2FEF7 /* PeerKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeerKit.h; sourceTree = "<group>"; };
 		E89FD6D11A0C3CDC00C2FEF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E89FD6D21A0C3CDC00C2FEF7 /* PeerKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerKitTests.swift; sourceTree = "<group>"; };
-		E89FD6DD1A0C3CF800C2FEF7 /* PeerKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerKit.swift; sourceTree = "<group>"; };
+		E89FD6DD1A0C3CF800C2FEF7 /* PeerPack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeerPack.swift; sourceTree = "<group>"; };
 		E89FD6DF1A0C3D1000C2FEF7 /* Advertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertiser.swift; sourceTree = "<group>"; };
 		E89FD6E01A0C3D1000C2FEF7 /* Browser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
 		E89FD6E11A0C3D1000C2FEF7 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 				E89FD6C51A0C3CDC00C2FEF7 /* PeerKit.h */,
 				E89FD6DF1A0C3D1000C2FEF7 /* Advertiser.swift */,
 				E89FD6E01A0C3D1000C2FEF7 /* Browser.swift */,
-				E89FD6DD1A0C3CF800C2FEF7 /* PeerKit.swift */,
+				E89FD6DD1A0C3CF800C2FEF7 /* PeerPack.swift */,
 				E89FD6E11A0C3D1000C2FEF7 /* Session.swift */,
 				E89FD6E21A0C3D1000C2FEF7 /* Transceiver.swift */,
 				E89FD6C31A0C3CDC00C2FEF7 /* Supporting Files */,
@@ -348,7 +348,7 @@
 			files = (
 				E89FD6E51A0C3D1000C2FEF7 /* Session.swift in Sources */,
 				E89FD6E31A0C3D1000C2FEF7 /* Advertiser.swift in Sources */,
-				E89FD6DE1A0C3CF800C2FEF7 /* PeerKit.swift in Sources */,
+				E89FD6DE1A0C3CF800C2FEF7 /* PeerPack.swift in Sources */,
 				E89FD6E61A0C3D1000C2FEF7 /* Transceiver.swift in Sources */,
 				E89FD6E41A0C3D1000C2FEF7 /* Browser.swift in Sources */,
 			);
@@ -360,7 +360,7 @@
 			files = (
 				E8DC82A01AB730D3000BB585 /* Session.swift in Sources */,
 				E8DC829E1AB730D3000BB585 /* Advertiser.swift in Sources */,
-				E8DC829D1AB730D3000BB585 /* PeerKit.swift in Sources */,
+				E8DC829D1AB730D3000BB585 /* PeerPack.swift in Sources */,
 				E8DC82A11AB730D3000BB585 /* Transceiver.swift in Sources */,
 				E8DC829F1AB730D3000BB585 /* Browser.swift in Sources */,
 			);

@@ -1,6 +1,5 @@
 //
 //  Transceiver.swift
-//  CardsAgainst
 //
 //  Created by JP Simard on 11/3/14.
 //  Copyright (c) 2014 JP Simard. All rights reserved.
@@ -22,7 +21,7 @@ public class Transceiver: SessionDelegate {
         self.displayName = displayName
         advertiser = Advertiser(displayName: displayName)
         browser = Browser(displayName: displayName)
-        masterSession.delegate = self
+        PeerPack.masterSession.delegate = self
     }
     
     
@@ -35,7 +34,7 @@ public class Transceiver: SessionDelegate {
     func stopTransceiving() {
         advertiser.stopAdvertising()
         browser.stopBrowsing()
-        masterSession.disconnect(displayName)
+        PeerPack.masterSession.disconnect(displayName)
         NSLog("Disconnecting from transceiver.")
     }
     
@@ -51,7 +50,7 @@ public class Transceiver: SessionDelegate {
     
     
     public func connecting(myPeerID: MCPeerID, toPeer peer: MCPeerID) {
-        if let onConnecting = onConnecting {
+        if let onConnecting = PeerPack.onConnecting {
             dispatch_async(dispatch_get_main_queue()) {
                 onConnecting(myPeerID: myPeerID, peerID: peer)
             }
@@ -60,7 +59,7 @@ public class Transceiver: SessionDelegate {
     
     
     public func connected(myPeerID: MCPeerID, toPeer peer: MCPeerID) {
-        if let onConnect = onConnect {
+        if let onConnect = PeerPack.onConnect {
             dispatch_async(dispatch_get_main_queue()) {
                 onConnect(myPeerID: myPeerID, peerID: peer)
             }
@@ -69,7 +68,7 @@ public class Transceiver: SessionDelegate {
     
     
     public func disconnected(myPeerID: MCPeerID, fromPeer peer: MCPeerID) {
-        if let onDisconnect = onDisconnect {
+        if let onDisconnect = PeerPack.onDisconnect {
             dispatch_async(dispatch_get_main_queue()) {
                 onDisconnect(myPeerID: myPeerID, peerID: peer)
             }
@@ -84,10 +83,10 @@ public class Transceiver: SessionDelegate {
             if let event = dict["event"] as? String {
                 if let object: AnyObject? = dict["object"] {
                     dispatch_async(dispatch_get_main_queue()) {
-                        if let onEvent = onEvent {
+                        if let onEvent = PeerPack.onEvent {
                             onEvent(peerID: peer, event: event, object: object)
                         }
-                        if let eventBlock = eventBlocks[event] {
+                        if let eventBlock = PeerPack.eventBlocks[event] {
                             eventBlock(peerID: peer, object: object)
                         }
                     }
@@ -98,7 +97,7 @@ public class Transceiver: SessionDelegate {
     
     
     public func finishReceivingResource(myPeerID: MCPeerID, resourceName: String, fromPeer peer: MCPeerID, atURL localURL: NSURL) {
-        if let onFinishReceivingResource = onFinishReceivingResource {
+        if let onFinishReceivingResource = PeerPack.onFinishReceivingResource {
             dispatch_async(dispatch_get_main_queue()) {
                 onFinishReceivingResource(myPeerID: myPeerID, resourceName: resourceName, peer: peer, localURL: localURL)
             }

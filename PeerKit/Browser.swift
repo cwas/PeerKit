@@ -1,6 +1,5 @@
 //
 //  Browser.swift
-//  CardsAgainst
 //
 //  Created by JP Simard on 11/3/14.
 //  Copyright (c) 2014 JP Simard. All rights reserved.
@@ -24,7 +23,7 @@ class Browser: NSObject, MCNearbyServiceBrowserDelegate {
 
 
     func startBrowsing(serviceType: String) {
-        mcBrowser = MCNearbyServiceBrowser(peer: masterSession.getPeerId(), serviceType: serviceType)
+        mcBrowser = MCNearbyServiceBrowser(peer: PeerPack.masterSession.getPeerId(), serviceType: serviceType)
         mcBrowser?.delegate = self
         mcBrowser?.startBrowsingForPeers()
     }
@@ -44,11 +43,11 @@ class Browser: NSObject, MCNearbyServiceBrowserDelegate {
         debugPrint("\tBrowser \(browser.myPeerID.displayName) found peerID \(peerID.displayName)")
 
         //Only invite from one side. Example: For devices A and B, only one should invite the other.
-        let hasInvite = (displayName.componentsSeparatedByString(PeerKit.ID_DELIMITER)[1] > peerID.displayName.componentsSeparatedByString(PeerKit.ID_DELIMITER)[1])
+        let hasInvite = (displayName.componentsSeparatedByString(PeerPack.ID_DELIMITER)[1] > peerID.displayName.componentsSeparatedByString(PeerPack.ID_DELIMITER)[1])
 
         if (hasInvite) {
             debugPrint("\tBrowser sending invitePeer")
-            let aSession = masterSession.availableSession(displayName, peerName: peerID.displayName)
+            let aSession = PeerPack.masterSession.availableSession(displayName, peerName: peerID.displayName)
             browser.invitePeer(peerID, toSession: aSession, withContext: nil, timeout: 30.0)
         }
         else {
